@@ -1,11 +1,6 @@
 package com.filmes.poshyweb.dominio.dto;
 
-import com.filmes.poshyweb.dominio.entity.FilmesEntity;
-
 public record FilmesDto(String nome, String nomeDireto, String ano) {
-    public FilmesDto(FilmesEntity filmes) {
-        this(filmes.getNome(), filmes.getAno(), filmes.getNomeDireto());
-    }
 
     @Override
     public String nome() {

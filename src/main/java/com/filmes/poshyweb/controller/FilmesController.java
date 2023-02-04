@@ -1,5 +1,6 @@
 package com.filmes.poshyweb.controller;
 
+import com.filmes.poshyweb.dominio.dto.FilmesDto;
 import com.filmes.poshyweb.dominio.entity.FilmesEntity;
 import com.filmes.poshyweb.service.FilmesService;
 import jakarta.validation.Valid;
@@ -16,8 +17,8 @@ public class FilmesController {
     private FilmesService service;
 
     @PostMapping("/insert")
-    public ResponseEntity insertFilmes(@RequestBody @Valid FilmesEntity filmes) {
-        FilmesEntity filmesEntity = service.insertFilmes(filmes);
+    public ResponseEntity insertFilmes(@RequestBody @Valid FilmesEntity filmes, FilmesDto dto) {
+        ResponseEntity<String> filmesEntity = service.insertFilmes(filmes, dto);
         return ResponseEntity.ok().body(filmesEntity);
     }
 
