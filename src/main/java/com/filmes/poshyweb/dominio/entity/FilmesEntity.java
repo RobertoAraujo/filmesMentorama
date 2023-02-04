@@ -6,12 +6,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
+
 @Entity
 public class FilmesEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +19,7 @@ public class FilmesEntity {
     @NotNull(message = "Nome do filme é obrigatorio!")
     private String nome;
     @NotNull(message = "Nome do Autor é obrigatorio!")
-    private  String nomeDireto;
+    private String nomeDireto;
     @NotNull(message = "Ano é obrigatorio!")
     private String ano;
     @NotNull(message = "1 ou 5")
