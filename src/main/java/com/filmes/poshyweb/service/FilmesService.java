@@ -16,14 +16,14 @@ public class FilmesService {
     private FilmesRepository repository;
 
     public ResponseEntity<String> insertFilmes(FilmesEntity filmes, FilmesDto dto) {
-        if (dto.nome() == filmes.getNome()) {
+        List<FilmesEntity> list = listFilmes();
+        if (list.equals(dto.getNome())) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ja existe o nome desse filme!");
 
-        } else if (dto.ano() == filmes.getNome()) {
-
+        } else if (list.equals(dto.getAno())) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ja existe o ano desse filme!");
 
-        } else if (dto.nomeDireto() == filmes.getNomeDireto()) {
+        } else if (list.equals(dto.getNomeDireto())) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ja existe o nome desse direto!");
 
         } else {
